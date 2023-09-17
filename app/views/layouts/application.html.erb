@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/76f838f2af.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -17,26 +17,26 @@
         <%= link_to "Bookers", '/' %>
       </li>
       <li>
-        <%= link_to "Home", books_path %>
+        <%= link_to "Home", user_path(current_user) %>
       </li>
       <li>
-        <%= link_to "Users", users_path %>
+        <%= link_to "Users", users_path%>
       </li>
       <li>
-        <%= link_to "Sign Up", new_user_registration_path %>
+        <%= link_to "Books", books_path %>
       </li>
       <li>
-        <%= link_to "Log out", destroy_user_session_path %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
         <%= link_to "Bookers", '/' %>
       </li>
       <li>
-        <%= link_to "Home", users_path %>
+        <%= link_to "Home", '/' %>
       </li>
       <li>
-        <%= link_to "About", 'home/about' %>
+        <%= link_to "About", about_path %>
       </li>
       <li>
         <%= link_to "Sign up", new_user_registration_path %>
@@ -47,6 +47,18 @@
       
     <% end %>
   </header>
+  
+  
     <%= yield %>
+    
+    <footer>
+     <div class="container mt-6">
+      <div class="row">
+       <div class="mx-auto">
+        <p>CopyRight Infratop.inc</p>
+       </div>
+      </div>
+     </div>
+  </footer>
   </body>
 </html>
